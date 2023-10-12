@@ -5,7 +5,13 @@ import { connectDB } from "./mongodb.js";
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: [],
+    methods: ["POST", "GET", "PATCH", "DELETE"],
+    credentials: true,
+  })
+);
 
 await connectDB();
 
