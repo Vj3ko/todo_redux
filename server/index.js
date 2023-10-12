@@ -15,6 +15,10 @@ app.use(
 
 await connectDB();
 
+app.get("/", (req, res) => {
+  res.json("Server is running");
+});
+
 //get all todos
 app.get("/todos", async (req, res) => {
   const todos = await Todo.find();
